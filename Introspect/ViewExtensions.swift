@@ -6,14 +6,16 @@ import AppKit
 import UIKit
 #endif
 
+#if canImport(UIKit) && canImport(SwiftUI) && canImport(Combine)
 @available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
 extension View {
     public func inject<SomeView>(_ view: SomeView) -> some View where SomeView: View {
         overlay(view.frame(width: 0, height: 0))
     }
 }
+#endif
 
-#if canImport(UIKit)
+#if canImport(UIKit) && canImport(SwiftUI) && canImport(Combine)
 @available(iOS 13.0, tvOS 13.0, macOS 10.15.0, *)
 extension View {
     
